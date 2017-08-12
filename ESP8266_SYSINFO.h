@@ -26,8 +26,6 @@
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipId(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void);
-
-//INTERNAL GPIO FUNCTIONS
 //END FUNCTION PROTOTYPES/////////////////////////////////
 
 #endif
