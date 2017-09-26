@@ -28,6 +28,8 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void);
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void);
+
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void);
 //END FUNCTION PROTOTYPES/////////////////////////////////
 
 #endif
