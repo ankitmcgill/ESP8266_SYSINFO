@@ -48,16 +48,12 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
 {
     //PRINT SYSTEM RESET DETIALS
 
-    struct reset_info* r_reason = NULL;
+    struct rst_info* r_reason = NULL;
 
     if((r_reason = system_get_rst_info()) != NULL)
     {
         switch(r_reason->reason)
         {
-        case REASON_DEFAULT_RST:
-            os_printf("ESP8266 : SYSINFO : default reset\n");
-            break;
-
         case REASON_DEFAULT_RST:
             os_printf("ESP8266 : SYSINFO : default reset\n");
             break;
