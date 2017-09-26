@@ -15,8 +15,8 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipId(void)
 {
 		//PRINT SYSTEM FLASH CHIP ID
 
-		 uint32_t chip_id = spi_flash_get_id();
-		 os_printf("ESP8266 : SYSINFO : Flash chip id = 0x%x\n", chip_id);
+			uint32_t chip_id = spi_flash_get_id();
+			os_printf("ESP8266 : SYSINFO : Flash chip id = 0x%x\n", chip_id);
 }
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void)
