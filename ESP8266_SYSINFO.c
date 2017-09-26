@@ -58,14 +58,14 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
 				os_printf("ESP8266 : SYSINFO : default reset\n");
 				break;
 
-		    case REASON_DEFAULT_RST:
-			    os_printf("ESP8266 : SYSINFO : default reset\n");
+			case REASON_DEFAULT_RST:
+				os_printf("ESP8266 : SYSINFO : default reset\n");
 				break;
 
 			case REASON_WDT_RST:
 				os_printf("ESP8266 : SYSINFO : hard wdt reset\n");
 				break;
-			
+
 			case REASON_EXCEPTION_RST:
 				os_printf("ESP8266 : SYSINFO : exception reset\n");
 				break;
