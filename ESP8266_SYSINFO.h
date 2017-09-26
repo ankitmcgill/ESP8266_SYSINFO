@@ -4,7 +4,7 @@
  * (UTILITY FUNCTIONS TO PRINT SYSTEM PARAMETERS)
  *
  * JULY 11  2017
- * 
+ *
  * ANKIT BHATNAGAR
  * ANKIT.BHATNAGARINDIA@GMAIL.COM
  *************************************************/
@@ -25,6 +25,8 @@
 //CONTROL FUNCTIONS
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipId(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void);
+
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void);
 //END FUNCTION PROTOTYPES/////////////////////////////////
 
