@@ -65,8 +65,8 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
 			case REASON_WDT_RST:
 				os_printf("ESP8266 : SYSINFO : hard wdt reset\n");
 				break;
-
-            case REASON_EXCEPTION_RST:
+			
+			case REASON_EXCEPTION_RST:
 				os_printf("ESP8266 : SYSINFO : exception reset\n");
 				break;
 
@@ -86,11 +86,10 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
 				os_printf("ESP8266 : SYSINFO : external sys reset\n");
 				break;
 		}
-		
-        os_printf("ESP8266 : SYSINFO : exccause = 0x%x epc1 = 0x%x epc2 = 0x%x epc3 = 0x%x\n", r_reason->exccause, r_reason->epc1, r_reason->epc2, r_reason->epc3);
+		os_printf("ESP8266 : SYSINFO : exccause = 0x%x epc1 = 0x%x epc2 = 0x%x epc3 = 0x%x\n", r_reason->exccause, r_reason->epc1, r_reason->epc2, r_reason->epc3);
 	}
 	else
 	{
-		os_printf("ESP8266 : SYSINFO : Cannot determine reset reason !\n");
+			os_printf("ESP8266 : SYSINFO : Cannot determine reset reason !\n");
 	}
 }
