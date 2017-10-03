@@ -19,12 +19,28 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipId(void)
     os_printf("ESP8266 : SYSINFO : Flash chip id = 0x%x\n", chip_id);
 }
 
+uint32_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetFlashChipId(void)
+{
+    //RETURN SYSTEM FLASH CHIP ID
+
+    uint32_t chip_id = spi_flash_get_id();
+    return chip_id;
+}
+
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void)
 {
     //PRINT SYSTEM FLASH MAP
 
     enum flash_size_map map = system_get_flash_size_map();
     os_printf("ESP8266 : SYSINFO : System flash map = %u\n", map);
+}
+
+uint16_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemFlashMap(void)
+{
+    //RETURN SYSTEM FLASH MAP
+
+    enum flash_size_map map = system_get_flash_size_map();
+    return map;
 }
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void)
@@ -35,6 +51,14 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void)
     os_printf("ESP8266 : SYSINFO : CPU Frequency = %u\n", freq);
 }
 
+uint32_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetCpuFrequency(void)
+{
+    //RETURN CPU FREQUENCY IN MHZ
+
+    uint32_t freq = system_get_cpu_freq();
+    return freq;
+}
+
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void)
 {
     //PRINT SYSTEM MAC ADDRESS
@@ -42,6 +66,13 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void)
     char sys_mac[6];
     wifi_get_macaddr(STATION_IF, sys_mac);
     os_printf("ESP8266 : SYSINFO : System MAC : %02X:%02X:%02X:%02X:%02X:%02X:\n", sys_mac[0], sys_mac[1], sys_mac[2], sys_mac[3], sys_mac[4], sys_mac[5]);
+}
+
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemMac(uint8_t* mac)
+{
+    //RETURN SYSTEM MAC ADDRESS
+
+    wifi_get_macaddr(STATION_IF, mac);
 }
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)

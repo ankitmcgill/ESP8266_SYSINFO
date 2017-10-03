@@ -24,10 +24,14 @@
 
 //CONTROL FUNCTIONS
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipId(void);
+uint32_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetFlashChipId(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemFlashMap(void);
+uint16_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemFlashMap(void);
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void);
+uint32_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetCpuFrequency(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void);
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemMac(uint8_t* mac);
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void);
 //END FUNCTION PROTOTYPES/////////////////////////////////
