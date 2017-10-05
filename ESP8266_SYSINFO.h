@@ -5,6 +5,11 @@
  *
  * JULY 11  2017
  *
+ * REFERENCES
+ * -------------
+ *	(1) CRC8
+ *			http://www.robotomy.eu/crc8/
+ *
  * ANKIT BHATNAGAR
  * ANKIT.BHATNAGARINDIA@GMAIL.COM
  *************************************************/
@@ -34,6 +39,8 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSystemMac(void);
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemMac(uint8_t* mac);
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void);
+
+uint8_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetCRC8(char* data, uint16_t len);
 //END FUNCTION PROTOTYPES/////////////////////////////////
 
 #endif
