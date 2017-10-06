@@ -48,6 +48,61 @@ uint16_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemFlashMap(void)
     return map;
 }
 
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintFlashChipMode(void)
+{
+    //PRINT FLASH CHIP MODE
+    //RESIDES IN HEADER (FIRST 4 BYTES) OF EAGLE.FLASH.BIN LOCATED
+    //AT FLASH ADDRESS 0x00000
+
+    uint32_t header;
+    SpiFlashOpResult result = spi_flash_read(0x00000, &header, 4);
+
+    if(result == SPI_FLASH_RESULT_OK)
+    {
+        result = result & 0x00F0;
+        result = result >> 8;
+
+        switch(result)
+        {
+            case 0:
+                os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_QIO\n"); 
+                break;
+            case 1:
+                os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_QOUT\n"); 
+                break;
+            case 2:
+                os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_DIO\n"); 
+                break;
+            case 3:
+                os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_DOUT\n"); 
+                break;
+            default:
+                os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_UNKNOWN\n"); 
+                break;
+        }
+        return;
+    }
+    os_printf("ESP8266 : SYSINFO : Flash Chip Mode = FLASH_MODE_UNKNOWN\n"); 
+}
+
+ESP8266_SYSINFO_FLASH_MODE ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetFlashChipMode(void)
+{
+    //RETURN FLASH CHIP MODE
+    //RESIDES IN HEADER (FIRST 4 BYTES) OF EAGLE.FLASH.BIN LOCATED
+    //AT FLASH ADDRESS 0x00000
+
+    uint32_t header;
+    SpiFlashOpResult result = spi_flash_read(0x00000, &header, 4);
+
+    if(result == SPI_FLASH_RESULT_OK)
+    {
+        result = result & 0x00F0;
+        result = result >> 8;
+        return (ESP8266_SYSINFO_FLASH_MODE)result;
+    }
+    return FLASH_MODE_UNKNOWN;
+}
+
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintCpuFrequency(void)
 {
     //PRINT CPU FREQUENCY IN MHZ
@@ -78,6 +133,34 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSystemMac(uint8_t* mac)
     //RETURN SYSTEM MAC ADDRESS
 
     wifi_get_macaddr(STATION_IF, mac);
+}
+
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintESP8266ChipId(void)
+{
+    //PRINT ESP8266 CHIP ID
+
+    os_printf("ESP8266 : SYSINFO : Esp8266 Chip Id : 0x%X\n", system_get_chip_id());
+}
+
+uint64_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetESP8266ChipId(void)
+{
+    //RETURN ESP8266 CHIP ID
+
+    return system_get_chip_id();
+}
+
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSDKVersion(void)
+{
+    //PRINT SDK VERSION
+
+    os_printf("ESP8266 : SYSINFO : SDK Version : %s\n", system_get_sdk_version());
+}
+
+const char* ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSDKVersion(void)
+{
+    //RETURN SDK VERSION
+
+    return system_get_sdk_version();
 }
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
