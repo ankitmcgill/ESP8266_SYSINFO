@@ -209,6 +209,14 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void)
     }
 }
 
+void ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetResetDetails(void)
+{
+    //PRINT SYSTEM RESET DETIALS
+
+    struct rst_info* r_reason = system_get_rst_info();
+    return rst_reason;
+}
+
 uint8_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetCRC8(char* data, uint16_t len)
 {
 		//RETURN CRC8 CHECKSUM OF THE SUPPLIED DATA WITH SPECIFIED LENGTH

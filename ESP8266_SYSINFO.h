@@ -60,6 +60,7 @@ void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintSDKVersion(void);
 const char* ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetSDKVersion(void);
 
 void ICACHE_FLASH_ATTR ESP8266_SYSINFO_PrintResetDetails(void);
+struct rst_info* ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetResetDetails(void);
 
 uint8_t ICACHE_FLASH_ATTR ESP8266_SYSINFO_GetCRC8(char* data, uint16_t len);
 //END FUNCTION PROTOTYPES/////////////////////////////////
