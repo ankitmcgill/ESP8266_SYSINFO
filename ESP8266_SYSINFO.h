@@ -8,7 +8,7 @@
  * REFERENCES
  * -------------
  *	(1) CRC8
- *			http://www.robotomy.eu/crc8/
+ *		http://www.robotomy.eu/crc8/
  *
  * ANKIT BHATNAGAR
  * ANKIT.BHATNAGARINDIA@GMAIL.COM
