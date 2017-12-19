@@ -1,5 +1,4 @@
 /*************************************************
- *
  * ESP8266 SYSINFO LIBRARY
  * (UTILITY FUNCTIONS TO PRINT SYSTEM PARAMETERS)
  *
